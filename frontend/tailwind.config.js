@@ -9,7 +9,8 @@ module.exports = withMT({
   ],
   theme: {
     fontFamily: {
-      sans: ["Space Grotesk", "sans-serif"],
+      // sans: ["Space Grotesk", "sans-serif"],
+      // serif: ["EB Garamond", "serif"],
     },
     extend: {},
   },
