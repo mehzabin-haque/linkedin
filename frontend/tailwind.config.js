@@ -11,6 +11,7 @@ module.exports = withMT({
     fontFamily: {
       // sans: ["Space Grotesk", "sans-serif"],
       // serif: ["EB Garamond", "serif"],
+      didact: ["Didact Gothic", "sans-serif"],
     },
     extend: {},
   },
