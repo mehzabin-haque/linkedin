@@ -1,8 +1,10 @@
+import { useState } from "react"
 import Login from "../components/Login"
 import Register from "../components/Register"
-import { useState } from "react"
 
-export default function Home() {
+type Props = {}
+
+function Home({}: Props) {
   const [signin, setSignin] = useState(true)
 
   const handleButtonClick = () => {
@@ -27,5 +29,7 @@ export default function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
+
+export default Home

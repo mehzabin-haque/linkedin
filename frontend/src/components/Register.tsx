@@ -1,36 +1,36 @@
-import { Card, Input, Button, Typography } from '@material-tailwind/react'
+import { Card, Typography, Input, Button } from '@material-tailwind/react'
+import axios from '../api/axios'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
-import { toast } from 'react-hot-toast'
-const backend = 'http://localhost:5000'
+import toast from 'react-hot-toast'
 
-export default function Register({ onButtonClick }) {
-  const form = useForm();
-  const {
-    register,
-    handleSubmit,
-    formState,
-  } = form
+type Props = {
+  onButtonClick: () => void
+}
+
+function Register({ onButtonClick }: Props) {
+  const form = useForm()
+  const { register, handleSubmit, formState } = form
 
   const { errors } = formState
-  const onSubmit = async(data) => {
-    await axios.post(`${backend}/register`, {
-      name: data.name,
-      email: data.email,
-      password: data.password
-    })
-    .then((response) => {
-      toast.success('Registered successfully')
-      window.location.href = '/'
-      console.log(response);
-    })
-    .catch((error) => {
-      if (error.response.status === 450) {
-        alert('Email already exists')
-      }
-      console.log(error.response.data)
-    })
-  }
+  const onSubmit = async (data: any) => {
+    await axios
+      .post(`/register`, {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      })
+      .then((response) => {
+        toast.success('Registered successfully')
+        window.location.href = '/'
+        console.log(response)
+      })
+      .catch((error) => {
+        if (error.response.status === 450) {
+          alert('Email already exists')
+        }
+        console.log(error.response.data)
+      })
+  };
 
   return (
     <Card color='transparent' shadow={false}>
@@ -50,12 +50,14 @@ export default function Register({ onButtonClick }) {
             size='lg'
             label='Name'
             id='name'
-            {...register('name', { required: {value: true, message: 'Name is required'} })}
+            {...register('name', {
+              required: { value: true, message: 'Name is required' },
+            })}
           />
-          {errors && errors.name && (
+          {errors?.name && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
-            {errors.name?.message}
-          </p>
+              Name is required
+            </p>
           )}
           <Input
             variant='standard'
@@ -63,12 +65,14 @@ export default function Register({ onButtonClick }) {
             type='email'
             label='Email'
             id='email'
-        {...register('email', { required: {value: true, message: 'Email required'} })}
+            {...register('email', {
+              required: { value: true, message: 'Email required' },
+            })}
           />
-          {errors && errors.email && (
+          {errors?.email && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
-            {errors.email?.message}
-          </p>
+              Email is required
+            </p>
           )}
           <Input
             variant='standard'
@@ -76,12 +80,14 @@ export default function Register({ onButtonClick }) {
             size='lg'
             label='Password'
             id='password'
-            {...register('password', { required: {value: true, message: 'Password required'} })}
+            {...register('password', {
+              required: { value: true, message: 'Password required' },
+            })}
           />
-          {errors && errors.password && (
+          {errors?.password && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
-            {errors.password?.message}
-          </p>
+              Password is required
+            </p>
           )}
         </div>
         <Button
@@ -100,5 +106,7 @@ export default function Register({ onButtonClick }) {
         </Typography>
       </form>
     </Card>
-  );
+  )
 }
+
+export default Register

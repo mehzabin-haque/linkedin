@@ -27,14 +27,14 @@ router.route('/').post(async (req, res) => {
 
     user.hashedPassword = ''
   
-    // try {
-    //   const token = jwt.sign({ username: user.name, email: user.email }, process.env.JWT_SECRET)
-    //   console.log('yay2')
-    //   res.json({ userId: user.id, token })
-    // } catch (error) {
-    //   res.status(400).json(error)
-    // }
-    res.status(200).json(user)
+    try {
+      const token = jwt.sign({ username: user.name, email: user.email }, process.env.JWT_ACCESS_SECRET)
+      console.log('yay2')
+      res.json({ userId: user.id, name: user.name, email: user.email, token })
+    } catch (error) {
+      res.status(400).json(error)
+    }
+    // res.status(200).json(user)
   } catch (error) {
     res.status(400).json(error)
   }
