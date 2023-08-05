@@ -60,6 +60,11 @@ function Login({ onButtonClick }: Props) {
               required: { value: true, message: 'Email required' },
             })}
           />
+          {errors?.email && (
+            <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
+              Email is required
+            </p>
+          )}
           <Input
             variant='standard'
             type='password'
@@ -69,6 +74,11 @@ function Login({ onButtonClick }: Props) {
               required: { value: true, message: 'Password required' },
             })}
           />
+          {errors?.password && (
+            <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
+              Password is required
+            </p>
+          )}
         </div>
         <Button
           type='submit'

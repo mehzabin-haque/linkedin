@@ -8,6 +8,7 @@ export default function Sidebar({ }: Props) {
   const [name, setName] = useState('')
 
   //unnecessary useEffect, replace this with data from fetched user
+  //see FollowBar
   useEffect(() => {
     setName('Shazzad Hossain')
     setImg('/placeholder.png')

@@ -2,6 +2,7 @@ import { Card, Typography, Input, Button } from '@material-tailwind/react'
 import axios from '../api/axios'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
+import { useSignIn } from 'react-auth-kit'
 
 type Props = {
   onButtonClick: () => void
@@ -10,8 +11,9 @@ type Props = {
 function Register({ onButtonClick }: Props) {
   const form = useForm()
   const { register, handleSubmit, formState } = form
-
+  const signIn = useSignIn();
   const { errors } = formState
+  
   const onSubmit = async (data: any) => {
     await axios
       .post(`/register`, {
@@ -21,7 +23,16 @@ function Register({ onButtonClick }: Props) {
       })
       .then((response) => {
         toast.success('Registered successfully')
-        window.location.href = '/'
+        const id = response.data.userId
+
+        signIn({
+          token: response.data.token,
+          expiresIn: 60 * 60 * 6,
+          tokenType: 'Bearer',
+          authState: { userId: response.data.id, email: response.data.email, isLoggedIn: true, name: response.data.name },
+        })
+
+        window.location.href = `/feed/:${id}`
         console.log(response)
       })
       .catch((error) => {

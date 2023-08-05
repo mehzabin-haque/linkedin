@@ -13,11 +13,14 @@ app.use(express.json())
 
 const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
+const userRouter = require('./routes/users')
 // const postRouter = require('./routes/post')
 // const notificationRouter = require('./routes/notification')
 
 app.use('/register', registerRouter)
 app.use('/login', loginRouter)
+app.use('/users', userRouter)
+
 // app.use('/post', postRouter)
 // app.use('/notification', notificationRouter)
 
