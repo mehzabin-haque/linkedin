@@ -29,7 +29,7 @@ function Login({ onButtonClick }: Props) {
           token: response.data.token,
           expiresIn: 60 * 60 * 6,
           tokenType: 'Bearer',
-          authState: { userId: response.data.id, email: response.data.email, isLoggedIn: true, name: response.data.name },
+          authState: { userId: response.data.userId, email: response.data.email, isLoggedIn: true, name: response.data.name },
         })
 
         window.location.href = `/feed/:${id}`
@@ -53,27 +53,25 @@ function Login({ onButtonClick }: Props) {
       >
         <div className='mb-4 flex flex-col gap-6'>
           <Input
-            variant='standard'
+            crossOrigin={undefined} variant='standard'
             size='lg'
             label='Email'
             {...register('email', {
               required: { value: true, message: 'Email required' },
-            })}
-          />
+            })}          />
           {errors?.email && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
               Email is required
             </p>
           )}
           <Input
-            variant='standard'
+            crossOrigin={undefined} variant='standard'
             type='password'
             size='lg'
             label='Password'
             {...register('password', {
               required: { value: true, message: 'Password required' },
-            })}
-          />
+            })}          />
           {errors?.password && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
               Password is required

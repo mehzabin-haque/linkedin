@@ -1,8 +1,18 @@
+import usePosts from "../hooks/usePosts"
+import PostItem from "./PostItem"
 
-type Props = {}
+type Props = {
+  userId?: string
+}
 
-export default function Post({}: Props) {
+export default function Post({ userId }: Props) {
+  const { data: posts = [] } = usePosts(userId)
+
   return (
-    <div>Post</div>
+    <>
+      {posts.map((post: Record<string, any>,) => (
+        <PostItem userId={userId} key={post.id} data={post} />
+      ))}
+    </>
   )
 }

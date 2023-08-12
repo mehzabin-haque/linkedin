@@ -6,6 +6,7 @@ import './index.css'
 import { Toaster } from 'react-hot-toast'
 import { ThemeProvider } from '@material-tailwind/react'
 import { AuthProvider } from 'react-auth-kit'
+import UploadModal from './components/UploadModal'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       >
         <BrowserRouter>
           <Toaster />
+          <UploadModal />
           <App />
         </BrowserRouter>
       </AuthProvider>

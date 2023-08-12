@@ -32,6 +32,7 @@ router.route('/').post(async (req, res) => {
       console.log('yay2')
       res.json({ userId: user.id, name: user.name, email: user.email, token })
     } catch (error) {
+      console.log(error)
       res.status(400).json(error)
     }
     // res.status(200).json(user)
