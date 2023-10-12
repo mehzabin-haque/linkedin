@@ -60,7 +60,7 @@ const Home: React.FC = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white rounded-md py-2 px-4 text-sm font-semibold hover:bg-indigo-500 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 focus:outline-none"
+              className="w-full bg-black text-white rounded-md py-2 px-4 text-sm font-semibold hover:bg-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 focus:outline-none"
             >
               Sign in
             </button>
@@ -69,7 +69,7 @@ const Home: React.FC = () => {
 
         <p className="mt-6 text-center text-sm text-gray-500">
           Not a member?
-          <a href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">SignUp</a>
+          <a href="/signup" className="font-semibold text-indigo-600 hover:text-black">SignUp</a>
         </p>
       </div>
     </div>
