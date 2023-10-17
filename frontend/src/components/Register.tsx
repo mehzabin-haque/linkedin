@@ -57,44 +57,41 @@ function Register({ onButtonClick }: Props) {
       >
         <div className='mb-4 flex flex-col gap-6'>
           <Input
-            variant='standard'
+            crossOrigin={undefined} variant='standard'
             size='lg'
             label='Name'
             id='name'
             {...register('name', {
               required: { value: true, message: 'Name is required' },
-            })}
-          />
+            })}          />
           {errors?.name && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
               Name is required
             </p>
           )}
           <Input
-            variant='standard'
+            crossOrigin={undefined} variant='standard'
             size='lg'
             type='email'
             label='Email'
             id='email'
             {...register('email', {
               required: { value: true, message: 'Email required' },
-            })}
-          />
+            })}          />
           {errors?.email && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
               Email is required
             </p>
           )}
           <Input
-            variant='standard'
+            crossOrigin={undefined} variant='standard'
             type='password'
             size='lg'
             label='Password'
             id='password'
             {...register('password', {
               required: { value: true, message: 'Password required' },
-            })}
-          />
+            })}          />
           {errors?.password && (
             <p className='text-red-600 leading-normal text-sm mt-[-6px]'>
               Password is required

@@ -28,8 +28,6 @@ router.route('/').get(async (req, res) => {
     const { userId } = req.query
     let posts
 
-    console.log('adjklvbdjvbndjasv')
-
     if (userId && typeof userId === 'string') {
       posts = await prisma.post.findMany({
         where: {
@@ -65,8 +63,6 @@ router.route('/').get(async (req, res) => {
 
 router.route('/').post(async (req, res) => {
   const { userId, body } = req.body
-  // console.log(userId, body)
-
   let post
 
   try {
@@ -77,7 +73,8 @@ router.route('/').post(async (req, res) => {
       }
     })
 
-    console.log(post)
+    // TODO: create notification here
+
     res.json(post)
   } catch (error) {
     console.log(error)
@@ -90,25 +87,12 @@ router.route('/upload/', fileUpload.single('image')).post(async (req, res) => {
   const body = req.body.body
   const userId = req.body.userId
   const image = req.files
-  console.log('body: ' + body)
-  // console.log(image)
-  // console.log(userId, body)
 
   let post
 
   try {
 
     const imageName = image.image.name
-    // console.log(image.image.name)
-    // const imageURL = 'http://localhost:9000/linkedin-mini/' + imageName
-
-    // minioClient.makeBucket('linkedin-mini', 'us-east-1', function (err) {
-    //   if (err) return console.log(err)
-
-    //   console.log('Bucket created successfully in "us-east-1".')
-
-
-    // });
 
     const metaData = {
       'Content-Type': image.image.mimetype,
@@ -118,7 +102,6 @@ router.route('/upload/', fileUpload.single('image')).post(async (req, res) => {
     
 
     // generate a valid URL for image
-    // console.log(uploadInfo)
     const imageURL = minioClient.protocol + '//' + minioClient.host + ':' + minioClient.port + '/' + 'linkedin-mini' + '/' + imageName
 
     post = await prisma.post.create({
@@ -129,11 +112,10 @@ router.route('/upload/', fileUpload.single('image')).post(async (req, res) => {
       }
     })
 
+    // TODO: create notification here
 
-    console.log(post)
     res.json(post)
   } catch (error) {
-    console.log(error)
     res.status(400).json(error)
   }
 })
