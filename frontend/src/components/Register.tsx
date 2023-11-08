@@ -40,7 +40,7 @@ function Register({ onButtonClick }: Props) {
         if (error.response.status === 450) {
           toast.error('Email already exists')
         }
-        console.log(error.response.data)
+        console.log(error)
       })
   };
 

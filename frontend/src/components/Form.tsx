@@ -22,7 +22,8 @@ export default function Form({ }: Props) {
     console.log(currentUser!)
     await axios.post('/posts', {
       userId: currentUser!.userId,
-      body
+      body,
+      name: currentUser!.name
     })
       .then(() => {
         toast.success('Post created successfully')

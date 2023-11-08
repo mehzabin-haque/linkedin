@@ -8,10 +8,14 @@ router.route('/').post(async (req, res) => {
   const { name, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
+  console.log(req.body);
+  console.log('bachao amare keu');
+  
   try {
     // Check if a user with the same email already exists in MongoDB
+    console.log('try e dhukche')
     const existingUser = await User.findOne({ email });
-
+    console.log("existing user nai");
     if (existingUser) {
       return res.status(450).json({ message: 'User already exists' });
     }

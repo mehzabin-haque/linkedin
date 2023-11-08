@@ -44,7 +44,8 @@ export default function UploadModal({ }: Props) {
       console.log(body)
       formData.append('body', body)
       formData.append('image', selectedFile, selectedFile.name)
-      formData.append('userId', currentUser!.userId)
+      formData.append('userId', currentUser?.userId)
+      formData.append('name', currentUser?.name)
       
       console.log(body)
       

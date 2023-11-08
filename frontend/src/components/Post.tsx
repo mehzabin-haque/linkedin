@@ -1,17 +1,20 @@
+import { useAuthUser } from "react-auth-kit"
 import usePosts from "../hooks/usePosts"
 import PostItem from "./PostItem"
 
-type Props = {
-  userId?: string
-}
+type Props = {}
 
-export default function Post({ userId }: Props) {
-  const { data: posts = [] } = usePosts(userId)
+export default function Post({ }: Props) {
+  const auth = useAuthUser()
+  const currentUser = auth()
+  
+  const { data: posts = [] } = usePosts(currentUser?.userId)
+
 
   return (
     <>
       {posts.map((post: Record<string, any>,) => (
-        <PostItem userId={userId} key={post.id} data={post} />
+        <PostItem userId={currentUser?.userId} key={post.id} data={post} />
       ))}
     </>
   )

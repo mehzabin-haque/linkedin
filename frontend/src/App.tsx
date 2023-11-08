@@ -8,8 +8,7 @@ import { RequireAuth } from 'react-auth-kit';
 export default function App() {
 
   return (
-    <>
-      <Routes>
+    <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/feed/:id' element={
           <RequireAuth loginPath='/'>
@@ -17,6 +16,5 @@ export default function App() {
           </RequireAuth>
         } />
       </Routes>
-    </>
   )
 }
