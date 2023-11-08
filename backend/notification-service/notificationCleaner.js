@@ -13,6 +13,7 @@ async function cleanNotifications() {
   }
 }
 
-cron.schedule('*/300 * * * * *', () => {
+// “At every 720th minute.” (Every 12 hours.)
+cron.schedule('*/720 * * * * *', () => {
   cleanNotifications()
 })

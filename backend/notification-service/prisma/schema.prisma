@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -14,5 +15,6 @@ model Notification {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   body      String
   userId    String   @db.ObjectId
+  postId    String   @db.ObjectId
   createdAt DateTime @default(now())
 }

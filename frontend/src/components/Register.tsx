@@ -15,6 +15,7 @@ function Register({ onButtonClick }: Props) {
   const { errors } = formState
   
   const onSubmit = async (data: any) => {
+    console.log('here')
     await axios
       .post(`/register`, {
         name: data.name,
@@ -32,12 +33,12 @@ function Register({ onButtonClick }: Props) {
           authState: { userId: response.data.id, email: response.data.email, isLoggedIn: true, name: response.data.name },
         })
 
-        window.location.href = `/feed/:${id}`
         console.log(response)
+        window.location.href = `/feed/:${id}`
       })
       .catch((error) => {
         if (error.response.status === 450) {
-          alert('Email already exists')
+          toast.error('Email already exists')
         }
         console.log(error.response.data)
       })

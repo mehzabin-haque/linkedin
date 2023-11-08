@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useAuthUser } from "react-auth-kit"
 import useUsers from "../hooks/useUsers"
 import { Avatar } from "@material-tailwind/react"
@@ -14,8 +13,7 @@ export default function FollowBar({ }: Props) {
   if (users.length === 0) return null
 
   return (
-    <>
-      <div className="px-6 py-4 hidden lg:block">
+    <div className="px-6 py-4 hidden lg:block">
         <div className="rounded-xl p-4">
           <h2 className="text-xl font-semibold">Following</h2>
           <div className="flex flex-col gap-6 mt-4">
@@ -31,6 +29,5 @@ export default function FollowBar({ }: Props) {
           </div>
         </div>
       </div>
-    </>
   )
 }

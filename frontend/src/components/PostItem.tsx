@@ -1,15 +1,14 @@
-import React, { useCallback, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useAuthUser } from 'react-auth-kit'
 import { formatDistanceToNowStrict } from 'date-fns';
 import { Avatar } from '@material-tailwind/react';
-import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai';
 
 type Props = {
   data: Record<string, any>
   userId?: string
 }
 
-export default function PostItem({ data = {}, userId }: Props) {
+export default function PostItem({ data = {} }: Props) {
   const auth = useAuthUser()
   const currentUser = auth()
 

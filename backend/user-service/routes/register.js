@@ -5,7 +5,7 @@ const prisma = require('../db/prisma')
 router.route('/').post(async (req, res) => {
   const { name, email, password } = req.body
   const hashedPassword = await bcrypt.hash(password, 10)
-  
+  console.log('yay1')
   try {
     const existingUser = await prisma.user.findUnique({
       where: {

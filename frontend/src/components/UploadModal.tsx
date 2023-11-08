@@ -74,7 +74,7 @@ export default function UploadModal({ }: Props) {
     else {
       toast.error('Please select an image')
     }
-  }, [selectedFile, body, currentUser!.userId, mutatePosts, formData])
+  }, [selectedFile, body, currentUser?.userId, mutatePosts, formData])
 
   const bodyContent = (
     <div className="flex flex-col gap-6">
@@ -140,7 +140,7 @@ export default function UploadModal({ }: Props) {
 
   return (
     <Modal
-      header={currentUser!.username}
+      header={currentUser?.username}
       disabled={isLoading}
       isOpen={uploadModal.isOpen}
       onClose={uploadModal.onClose}

@@ -12,8 +12,7 @@ function Home({}: Props) {
   }
 
   return (
-    <>
-      <div className="mt-10 flex flex-col xl:flex-row items-center justify-center h-[78vh] space-y-10 xl:space-x-[-20rem]">
+    <div className="mt-10 flex flex-col xl:flex-row items-center justify-center h-[78vh] space-y-10 xl:space-x-[-20rem]">
         <div className="mt-4 flex flex-col space-y-10 items-center justify-center w-full">
           <img src="/logo.png" width={200} className="" />
           <p className="text-3xl md:text-3xl leading-tight">
@@ -28,7 +27,6 @@ function Home({}: Props) {
           }
         </div>
       </div>
-    </>
   )
 }
 

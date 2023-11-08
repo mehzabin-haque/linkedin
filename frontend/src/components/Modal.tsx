@@ -10,7 +10,7 @@ interface Props {
   body?: React.ReactElement
 }
 
-export default function Modal({ header, disabled, isOpen, onClose, handleSubmit, body }: Props) {
+export default function Modal({ header, disabled, isOpen, onClose, body }: Props) {
   const handleClose = useCallback(() => {
     if (disabled) return
 
@@ -20,8 +20,7 @@ export default function Modal({ header, disabled, isOpen, onClose, handleSubmit,
   if (!isOpen) return null
 
   return (
-    <>
-      <div
+    <div
         className="
           justify-center 
           items-center 
@@ -83,6 +82,5 @@ export default function Modal({ header, disabled, isOpen, onClose, handleSubmit,
           </div>
         </div>
       </div>
-    </>
   )
 }

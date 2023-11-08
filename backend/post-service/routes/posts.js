@@ -73,7 +73,19 @@ router.route('/').post(async (req, res) => {
       }
     })
 
-    // TODO: create notification here
+    const user = await prisma.user.findUnique({
+      where: {
+        id: userId
+      }
+    })
+
+    const notification = "New post from " + user.name
+
+    // const notificationData = await axios.post('http://localhost/notify/', {
+    //   userId: userId,
+    //   postId: post.id,
+    //   notification: notification
+    // })
 
     res.json(post)
   } catch (error) {
@@ -112,8 +124,20 @@ router.route('/upload/', fileUpload.single('image')).post(async (req, res) => {
       }
     })
 
-    // TODO: create notification here
+    const user = await prisma.user.findUnique({
+      where: {
+        id: userId
+      }
+    })
 
+    const notification = "New post from " + user.name
+
+    // const notificationData = await axios.post('http://localhost/notify/', {
+    //   userId: userId,
+    //   postId: post.id,
+    //   notification: notification
+    // })
+    
     res.json(post)
   } catch (error) {
     res.status(400).json(error)
