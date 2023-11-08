@@ -160,13 +160,13 @@ router.route('/upload/').post(fileUpload.single('image'), async (req, res) => {
 
     const notification = "New post from " + name;
 
-    console.log('creating notification...');
-    const notificationData = await axios.post('http://localhost/notification/create', {
-      userId: userId,
-      postId: post._id,
-      notification: notification
-    });
-    console.log('notification created');
+    // console.log('creating notification...');
+    // const notificationData = await axios.post('http://localhost/notification/create', {
+    //   userId: userId,
+    //   postId: post._id,
+    //   notification: notification
+    // });
+    // console.log('notification created');
 
     res.json(post);
   } catch (error) {
