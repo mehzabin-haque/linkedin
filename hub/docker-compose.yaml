@@ -53,43 +53,6 @@ services:
     networks:
       - app-network
 
-  # userservice:
-  #   image: userservice
-  #   build:
-  #     context: ./microservices/user-service
-  #   container_name: userservice
-  #   ports:
-  #     - "5001:5001"
-  #   depends_on:
-  #     - user_db
-  #   networks:
-  #     - app-network
-
-  # postservice:
-  #   image: postservice
-  #   build:
-  #     context: ./microservices/post-service
-  #   container_name: postservice
-  #   ports:
-  #     - "5002:5002"
-  #   depends_on:
-  #     - post_db
-  #   networks:
-  #     - app-network
-    
-
-  # notificationservice:
-  #   image: notificationservice
-  #   build:
-  #     context: ./microservices/notification-service
-  #   container_name: notificationservice
-  #   ports:
-  #     - "5003:5003"
-  #   depends_on:
-  #     - notification_db
-  #   networks:
-  #     - app-network
-
   userservice:
     image: shazzad9/userservice:latest
     container_name: userservice

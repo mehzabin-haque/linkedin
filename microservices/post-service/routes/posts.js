@@ -80,7 +80,6 @@ router.route('/').post(async (req, res) => {
       postId: post._id,
       notification: notification
     }).then((res) => {
-      console.log(res);
     }).catch((err) => {
       console.log(err.response);
     });
@@ -166,7 +165,7 @@ router.route('/upload/').post(fileUpload.single('image'), async (req, res) => {
       postId: post._id,
       notification: notification
     }).then((res) => {
-      console.log(res);
+      
     }).catch((err) => {
       console.log(err.response);
     });
