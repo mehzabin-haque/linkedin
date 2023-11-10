@@ -27,7 +27,7 @@ function Login({ onButtonClick }: Props) {
 
         signIn({
           token: response.data.token,
-          expiresIn: 60 * 60 * 6,
+          expiresIn: 60 * 60,
           tokenType: 'Bearer',
           authState: { userId: response.data.userId, email: response.data.email, isLoggedIn: true, name: response.data.name },
         })

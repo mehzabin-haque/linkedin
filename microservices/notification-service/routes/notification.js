@@ -3,17 +3,22 @@ const Notification = require('../model/notification'); // Replace with the corre
 
 router.route('/').get(async (req, res) => {
   try {
+    console.log('finding all notifications...');
     const notifications = await Notification.find().sort({ createdAt: 'desc' });
+    console.log('all notifications found');
+    console.log(notifications);
     res.json(notifications);
   } catch (error) {
     res.status(400).json(error);
   }
 });
 
-router.route('/create').post(async (req, res) => {
+router.route('/').post(async (req, res) => {
   try {
+    console.log('creating new notification...');
     const { userId, postId, notification } = req.body;
-    const newNotification = await Notification.create({ postId, body: notification });
+    console.log(notification);
+    const newNotification = await Notification.create({ postId: postId, body: notification });
     res.json(notificationStatus);
   } catch (error) {
     res.status(400).json(error);

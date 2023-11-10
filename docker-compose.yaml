@@ -10,18 +10,24 @@ services:
     depends_on:
       # - postservice
       - userservice
+    networks:
+      - app-network
       
   user_db:
     image: mongo:latest
     container_name: user_db
     volumes:
       - user-data:/data/db
+    networks:
+      - app-network
 
   post_db:
     image: mongo:latest
     container_name: post_db
     volumes:
       - post-data:/data/db
+    networks:
+      - app-network
 
 
   notification_db:
@@ -29,6 +35,8 @@ services:
     container_name: notification_db
     volumes:
       - notification-data:/data/db
+    networks:
+      - app-network
 
   minio:
     image: minio/minio
@@ -42,6 +50,8 @@ services:
     command: ["server", "--console-address", ":9001", "/data"]   
     volumes:
       - minio-data:/data
+    networks:
+      - app-network
 
   userservice:
     image: userservice
@@ -52,6 +62,8 @@ services:
       - "5001:5001"
     depends_on:
       - user_db
+    networks:
+      - app-network
 
   postservice:
     image: postservice
@@ -62,6 +74,8 @@ services:
       - "5002:5002"
     depends_on:
       - post_db
+    networks:
+      - app-network
     
 
   notificationservice:
@@ -73,9 +87,14 @@ services:
       - "5003:5003"
     depends_on:
       - notification_db
+    networks:
+      - app-network
 
 volumes:
   user-data:
   post-data:
   notification-data:
   minio-data:
+
+networks:
+  app-network:

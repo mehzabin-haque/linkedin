@@ -65,7 +65,7 @@ export default function PostItem({ data = {} }: Props) {
               {currentUser?.name}
             </p>
             
-            <span className="text-gray-500 text-sm">
+            <span className="text-gray-600 text-sm">
               {createdAt}
             </span>
           </div>

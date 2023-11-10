@@ -40,7 +40,7 @@ export default function Form({ }: Props) {
   }, [body, mutatePosts])
 
   return (
-    <div className="border-b-[1px] border-gray-800 px-5 py-2">
+    <div className="border-b-[1px] border-gray-800 px-8 py-2">
       <div className="flex flex-row gap-4">
         <div>
           <Avatar src={currentUser?.profileImage || '/placeholder.png'} alt='avatar' size='sm' />

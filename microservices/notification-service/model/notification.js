@@ -3,8 +3,7 @@ const { Schema } = mongoose;
 
 const notificationSchema = new Schema({
   body: String,
-  userId: { type: Schema.Types.ObjectId }, // Assuming there is a User model
-  postId: { type: Schema.Types.ObjectId }, // Assuming postId is an ObjectId
+  postId: String,
   createdAt: { type: Date, default: Date.now },
 });
 
