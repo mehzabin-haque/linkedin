@@ -6,7 +6,6 @@ router.route('/').get(async (req, res) => {
     console.log('finding all notifications...');
     const notifications = await Notification.find().sort({ createdAt: 'desc' });
     console.log('all notifications found');
-    console.log(notifications);
     res.json(notifications);
   } catch (error) {
     res.status(400).json(error);
