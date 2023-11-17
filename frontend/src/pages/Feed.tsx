@@ -11,14 +11,14 @@ export default function Feed({ }: Props) {
       <div className="container h-full mx-auto px-8 xl:px-20">
         <div className="grid grid-cols-12 h-full">
           <div className="col-span-2">
-            <Sidebar/>
+            <NotificationsFeed />
           </div>
           <div className="col-span-8 lg:col-span-7 border-x-[1px] border-neutral-800">
             <Form />
             <Post />
           </div>
           <div className="col-span-3">
-            <NotificationsFeed />
+          <Sidebar/>
           </div>
         </div>
       </div>

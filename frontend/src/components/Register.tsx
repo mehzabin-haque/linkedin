@@ -46,18 +46,16 @@ function Register({ onButtonClick }: Props) {
 
   return (
     <Card color='transparent' shadow={false}>
-      <Typography variant='h3' color='blue'>
-        Sign Up
-      </Typography>
-      <Typography color='gray' className='mt-1 font-normal'>
-        Enter your details to register.
-      </Typography>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='mt-4 mb-2 w-80 max-w-screen-lg sm:w-96'
-      >
-        <div className='mb-4 flex flex-col gap-6'>
-          <Input
+      <div className="flex  items-center justify-center">
+            <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
+                <div className="text-center">
+                    
+                    <h2 className="mt-4 text-2xl font-bold text-gray-900">Sign Up</h2>
+                </div>
+
+                <form className="mt-6 w-80 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                    {/* Your form inputs here */}
+                    <Input
             crossOrigin={undefined} variant='standard'
             size='lg'
             label='Name'
@@ -98,8 +96,8 @@ function Register({ onButtonClick }: Props) {
               Password is required
             </p>
           )}
-        </div>
-        <Button
+
+      <Button
           type='submit'
           ripple={true}
           className='mt-6 tracking-[2px] text-sm rounded-full'
@@ -108,12 +106,15 @@ function Register({ onButtonClick }: Props) {
           Sign Up
         </Button>
         <Typography color='gray' className='mt-4 text-center font-normal'>
-          Already have an account?{' '}
+          Already a member?{' '}
           <Button onClick={onButtonClick} size='lg' variant='text'>
             Sign In
           </Button>
         </Typography>
-      </form>
+                </form>
+
+            </div>
+        </div>
     </Card>
   )
 }

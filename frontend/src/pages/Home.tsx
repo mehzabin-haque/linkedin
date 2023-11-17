@@ -12,21 +12,15 @@ function Home({}: Props) {
   }
 
   return (
-    <div className="mt-10 flex flex-col xl:flex-row items-center justify-center h-[78vh] space-y-10 xl:space-x-[-20rem]">
-        <div className="mt-4 flex flex-col space-y-10 items-center justify-center w-full">
-          <img src="/logo.png" width={200} className="" />
-          <p className="text-3xl md:text-3xl leading-tight">
-            Find jobs through your community
-          </p>
-        </div>
-        <div className="h-full xl:w-full flex items-center justify-center">
-          {(signin === true)?
-            ( <Login onButtonClick={handleButtonClick} /> ) 
-            :
-            ( <Register onButtonClick={handleButtonClick} />)
-          }
-        </div>
-      </div>
+    <div className="bg-gray-50 flex flex-col items-center justify-center min-h-screen">
+  <div className="flex flex-col xl:flex-row items-center justify-center space-y-10 xl:space-y-0 xl:space-x-10">
+    <div className="flex flex-col  items-center justify-center w-full">
+      <img src="/link.png" alt="Link Logo" width={100} className="mb-8" />
+      {signin ? <Login onButtonClick={handleButtonClick} /> : <Register onButtonClick={handleButtonClick} />}
+    </div>
+  </div>
+</div>
+
   )
 }
 

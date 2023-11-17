@@ -1,7 +1,5 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import useNotifications from "../hooks/useNotifcations";
-import { FaBell } from "react-icons/fa";
-import { formatDistanceToNowStrict } from "date-fns";
 import NotificationItem from "./NotificationItem";
 
 const NotificationsFeed = () => {

@@ -11,7 +11,7 @@ COPY package*.json ./
 COPY create_bucket.sh /etc/minio/
 
 RUN chmod +x /etc/minio/create_bucket.sh
-RUN npm install
+# RUN npm install
 
 # Install the node dependencies (good practice to use ci as it install the exact same versioned package of your project)
 RUN npm install --production --silent && mv node_modules ../

@@ -43,13 +43,16 @@ function Login({ onButtonClick }: Props) {
 
   return (
     <Card color='transparent' shadow={false}>
-      <Typography variant='h3' color='blue'>
-        Sign In
-      </Typography>
+      <div className="flex  items-center justify-center">
+            <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
+                <div className="text-center">
+                    
+                    <h2 className="mt-4 text-2xl font-bold text-gray-900">Sign In</h2>
+                </div>
 
-      <form
+                <form
         onSubmit={handleSubmit(onSubmit)}
-        className='mt-4 mb-2 w-80 max-w-screen-lg sm:w-96'
+        className="mt-6 w-80 space-y-6"
       >
         <div className='mb-4 flex flex-col gap-6'>
           <Input
@@ -93,6 +96,9 @@ function Login({ onButtonClick }: Props) {
           </Button>
         </Typography>
       </form>
+
+            </div>
+        </div>
     </Card>
   )
 }

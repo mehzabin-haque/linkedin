@@ -107,38 +107,9 @@ router.route('/upload/').post(fileUpload.single('image'), async (req, res) => {
     const metaData = {
       'Content-Type': image.mimetype,
     };
-
-    // console.log(minioClient.protocol + '//' + minioClient.host + ':' + minioClient.port + '/' + 'linkedin-mini' + '/' + imageName)
-    // // check if bucket exists, otherwise create bucket
-    // console.log('checking if bucket exists...');
-    // minioClient.listBuckets((err, buckets) => {
-    //   if (err) {
-    //     console.error('Error listing buckets:', err);
-    //     return;
-    //   }
-    // });
-    
-    // const found = buckets.some(bucket => bucket.name === bucketName);
-  
-    // console.log('bucket checking done...');
-    // if (!found) {
-    //   console.log('bucket not found, creating bucket...');
-    //   await minioClient
-    //   .makeBucket('linkedin-mini', "us-east-1")
-    //   .then(() => {
-    //     minioClient.setBucketPolicy('linkedin-mini', policy, function (err) {
-    //       if (err) return console.log("Error setting bucket policy.", err);
-    //       console.log("Bucket policy set to allow public access.");
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error creating bucket.", err);
-    //   });
-    //   console.log('bucket created');
-    // }
-    // console.log('bucket exists');
     
     console.log('uploading image to minio...');
+    //keep image in bucket named linkedin-mini
     const uploadInfo = await minioClient.putObject('linkedin-mini', imageName, image.buffer, metaData);
     console.log('image uploaded to minio');
 
@@ -154,9 +125,7 @@ router.route('/upload/').post(fileUpload.single('image'), async (req, res) => {
     post = await post.save();
     console.log('post created');
 
-    // const user = await User.findOne({ _id: userId }).exec();
-    // const user = await axios.get('http://localhost:5001/users/', {userId});
-
+    
     const notification = "New post from " + name;
 
     console.log('creating notification...');

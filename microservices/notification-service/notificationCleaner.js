@@ -11,5 +11,5 @@ async function cleanNotifications() {
   }
 }
 
-// Schedule the task to run every 10 minutes
+// Schedule the task to run every 15 minutes
 cron.schedule('*/15 * * * *', cleanNotifications);

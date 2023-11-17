@@ -8,7 +8,7 @@ export default function Post({ }: Props) {
   const auth = useAuthUser()
   const currentUser = auth()
   
-  const { data: posts = [] } = usePosts(currentUser?.userId)
+  const { data: posts = [] } = usePosts()
 
 
   return (
